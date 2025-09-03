@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build cpp",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-g",
+        "-O0",
+        "-std=c++17",
+        "-ID:/github/onnxruntime/include",
+        "-ID:/github/onnxruntime/include/onnxruntime/core/session", // 추가된 include 옵션
+        "isolation_forest_onnx_use.cpp",
+        "-LD:/github/onnxruntime/build/Windows/Release/Release",
+        "-lonnxruntime",
+        "-o",
+        "isolation_forest_onnx_use.exe"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}
